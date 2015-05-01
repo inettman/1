@@ -1,0 +1,13 @@
+{% extends 'LocationPlaceBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}title_main{% endtrans %}{% endblock%}
+
+{% block body %}
+    
+    <h1>{% trans %}title_main{% endtrans %}</h1>
+    
+    {{ render(controller('LocationPlaceBundle:Place:search')) }}
+
+{% endblock %}
+
+

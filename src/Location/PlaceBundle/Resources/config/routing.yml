@@ -1,0 +1,36 @@
+location_page_index:
+    path:     /
+    defaults: { _controller: LocationPlaceBundle:Page:index }
+location_place_add:
+    path:     /place/add
+    defaults: { _controller: LocationPlaceBundle:Place:add }
+location_country_map:
+    pattern:     /country/map/{id}
+    defaults: { _controller: LocationPlaceBundle:Country:map }
+    requirements:
+        _method:  GET
+        id: \d+
+location_region_map:
+    pattern:     /region/map/{id}
+    defaults: { _controller: LocationPlaceBundle:Region:map }
+    requirements:
+        _method:  GET
+        id: \d+
+location_district_map:
+    pattern:     /district/map/{id}
+    defaults: { _controller: LocationPlaceBundle:District:map }
+    requirements:
+        _method:  GET
+        id: \d+
+location_city_map:
+    pattern:     /city/map/{id}
+    defaults: { _controller: LocationPlaceBundle:City:map }
+    requirements:
+        _method:  GET
+        id: \d+
+location_place_map:
+    pattern:     /place/map/{id}
+    defaults: { _controller: LocationPlaceBundle:Place:map }
+    requirements:
+        _method:  GET
+        id: \d+

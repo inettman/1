@@ -1,0 +1,6 @@
+<div class="list-group">
+    {% for country in countries %}
+        <a href="{{ path('location_country_map', { 'id': country.id }) }}" class="list-group-item">{{country.name}}</a>
+    {% endfor %}
+</div>
+

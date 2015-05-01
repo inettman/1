@@ -1,0 +1,25 @@
+{% extends 'LocationPlaceBundle::layout.html.twig' %}
+
+{% block breadcrumbs %}{{ wo_render_breadcrumbs({ lastActive: '1' }) }}{% endblock %}
+
+{% block title %}{{title}}{% endblock%}
+
+{% block body %}
+    
+    <h1>{{title}}</h1>
+    
+    {% if place.address|length %}
+        <p><strong>{{ 'address_full'|trans }}:</strong>  {{place.address}}<p>
+    {% endif %}
+    
+    {% if place.phone|length %}
+        <p><strong>{{ 'phone'|trans }}:</strong>  {{place.phone}}<p>
+    {% endif %}
+    
+    <p><strong>{{ 'coordinates'|trans }}:</strong>  {{place.lat}} {{place.lng}}<p>
+    
+    {{ google_map(map) }}
+
+{% endblock %}
+
+

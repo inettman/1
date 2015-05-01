@@ -1,0 +1,73 @@
+<p>
+    {% for type in autocomplete_types %}
+        <label class="radio-inline">
+            <input type="radio" name="autocomplete_option" value="{{type.value}}" {% if type.value==false %} checked="ckecked" {% endif %}> {{type.title}}
+        </label>
+    {% endfor %}
+</p>    
+<p>{{ autocomplete_view.html | raw }}</p>
+{{ autocomplete_view.js | raw }}
+
+{{ google_map(map) }}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+       var map = {{vars['map']}};
+       var autocomplete = {{vars['autocomplete']}};
+       geocoder = new google.maps.Geocoder();
+
+       google.maps.event.addListener(autocomplete, 'place_changed', function(){
+
+            var place = autocomplete.getPlace(); 
+
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport); 
+            } else { 
+                map.setCenter(place.geometry.location); 
+                map.setZoom(16);
+            }
+
+            var marker = new google.maps.Marker({
+                position: place.geometry.location
+            });
+
+            marker.setMap(map);
+
+
+            place.url = [];
+
+            geocoder.geocode({'latLng': place.geometry.location}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    $.ajax({
+                        type: "POST",
+                        data: "place="+JSON.stringify(place)+"&location="+JSON.stringify(results),
+                        url: "{{ path('location_place_add') }}",
+                        dataType: "json",
+                        async: false,
+                        success: function(data) {
+
+
+
+                        }
+                    })
+                } 
+
+            });
+
+        });
+
+        $('input[name=\'autocomplete_option\']').click(function(){
+            var types = [];
+            if($(this).val()){
+                types = [''+$(this).val()+''];
+            } 
+            autocomplete.setTypes(types);
+        });
+
+
+
+    });
+</script>
+
+

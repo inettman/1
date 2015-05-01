@@ -1,0 +1,29 @@
+{% extends 'LocationPlaceBundle::layout.html.twig' %}
+
+{% block title %}{{title}}{% endblock%}
+
+{% block body %}
+    
+    <h1>{{title}}</h1>
+
+    <p><strong>{{country.name}} {{ 'coordinates'|trans|lower }}:</strong> {{country.lat}} {{country.lng}}<p>
+    
+    {{ google_map(map) }}
+    
+    {% if regions|length %}
+    
+        <h2>{% trans %}regions{% endtrans %}</h2>
+
+        <p>
+            <ul>
+            {% for region in regions %}
+                <li><a href="{{ path('location_region_map', { 'id': region.id }) }}">{{ region.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </p>
+    
+    {% endif %}
+
+{% endblock %}
+
+

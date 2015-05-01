@@ -1,0 +1,37 @@
+{% if places|length %}
+    <div class="col-xs-6 col-lg-4">
+        <h2>{{ 'places_last'|trans }}</h2>
+        <ul>
+            {% for place in places %}
+                <li><a href="{{ path('location_place_map', { 'id': place.id }) }}">{{place.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a class="btn btn-default" href="{{ path('location_page_index') }}" role="button">{{ 'place_search'|trans }} &raquo;</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->
+{% endif %}
+
+{% if cities|length %}
+    <div class="col-xs-6 col-lg-4">
+        <h2>{{ 'cities_last'|trans }}</h2>
+        <ul>
+            {% for city in cities %}
+                <li><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{city.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a class="btn btn-default" href="{{ path('location_page_index') }}" role="button">{{ 'city_search'|trans }} &raquo;</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->
+{% endif %}
+
+{% if countries|length %}
+    <div class="col-xs-6 col-lg-4">
+        <h2>{{ 'countries_last'|trans }}</h2>
+        <ul>
+            {% for country in countries %}
+                <li><a href="{{ path('location_country_map', { 'id': country.id }) }}">{{country.name}}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a class="btn btn-default" href="{{ path('location_page_index') }}" role="button">{{ 'country_search'|trans }} &raquo;</a></p>
+    </div><!--/.col-xs-6.col-lg-4-->
+{% endif %}
+
+

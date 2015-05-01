@@ -1,0 +1,29 @@
+{% extends 'LocationPlaceBundle::layout.html.twig' %}
+
+{% block title %}{{title}}{% endblock%}
+
+{% block body %}
+    
+    <h1>{{title}}</h1>
+    
+    <p><strong>{{district.name}} {{ 'coordinates'|trans|lower }}:</strong> {{district.lat}} {{district.lng}}<p>
+    
+    {{ google_map(map) }}
+    
+    {% if cities|length %}
+    
+        <h2>{% trans %}cities{% endtrans %}</h2>
+
+        <p>
+            <ul>
+            {% for city in cities %}
+                <li><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{ city.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </p>
+    
+    {% endif %}
+
+{% endblock %}
+
+

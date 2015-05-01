@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>all</source>
+                <target>Все</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>address</source>
+                <target>Адреса</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>establishment</source>
+                <target>Заведения</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>title_main</source>
+                <target>Поиск мест на карте</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>on_map</source>
+                <target>на карте</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>site_name</source>
+                <target>WebKarta.net</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>regions</source>
+                <target>Регионы</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>districts</source>
+                <target>Районы</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>districts_of_city</source>
+                <target>Район города</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>cities</source>
+                <target>Города</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>places</source>
+                <target>Места</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>page_main</source>
+                <target>Поиск на карте</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>coordinates</source>
+                <target>Координаты</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>address_full</source>
+                <target>Адрес</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>phone</source>
+                <target>Телефон</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>sidebur_title</source>
+                <target>Другие страны</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>countries_last</source>
+                <target>Новые страны</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>cities_last</source>
+                <target>Новые города</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>places_last</source>
+                <target>Новые места</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>country_search</source>
+                <target>Найти страну</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>city_search</source>
+                <target>Найти город</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>place_search</source>
+                <target>Найти место</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

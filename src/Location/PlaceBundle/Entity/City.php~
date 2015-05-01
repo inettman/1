@@ -1,0 +1,85 @@
+<?php
+
+namespace Location\PlaceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * City
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Location\PlaceBundle\Entity\CityRepository")
+ */
+class City
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\Column(type="string", length=150)
+     */
+    protected $name;
+    
+    /**
+     * @ORM\Column(type="string", length=250)
+     */
+    protected $address;
+    
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    protected $google_place_id;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lat;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lng;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lat_n;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lat_s;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lng_w;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=6)
+     */
+    protected $lng_e;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="District", inversedBy="cities")
+     * @ORM\JoinColumn(name="district_id", referencedColumnName="id")
+     */
+    protected $district;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Place", mappedBy="city")
+     */
+    protected $places;
+
+    public function __construct()
+    {
+        $this->places = new ArrayCollection();
+    }
+
+}

@@ -1,0 +1,4 @@
+services:
+#    location_place.example:
+#        class: Location\PlaceBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

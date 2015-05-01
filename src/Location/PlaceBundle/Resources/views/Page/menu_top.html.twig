@@ -1,0 +1,9 @@
+<div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+         <li><a href="{{ path('location_page_index') }}">{% trans %}page_main{% endtrans %}</a></li>
+        {% for country in countries %}
+            <li><a href="{{ path('location_country_map', { 'id': country.id }) }}">{{country.name}}</a></li>
+        {% endfor %}
+    </ul>
+</div><!-- /.nav-collapse -->
+
