@@ -90,6 +90,26 @@
                 <source>place_search</source>
                 <target>Найти место</target>
             </trans-unit>
+            <trans-unit id="23">
+                <source>country_add</source>
+                <target>Добавить страну</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>region_add</source>
+                <target>Добавить регион</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>district_add</source>
+                <target>Добавить район</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>city_add</source>
+                <target>Добавить город</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>place_add</source>
+                <target>Добавить место</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
