@@ -110,6 +110,10 @@
                 <source>place_add</source>
                 <target>Добавить место</target>
             </trans-unit>
+            <trans-unit id="28">
+                <source>menu_top_name</source>
+                <target>Меню действий</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
