@@ -114,6 +114,10 @@
                 <source>menu_top_name</source>
                 <target>Меню действий</target>
             </trans-unit>
+            <trans-unit id="29">
+                <source>description_main</source>
+                <target>Поиск мест на карте по адресу или по названию</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
