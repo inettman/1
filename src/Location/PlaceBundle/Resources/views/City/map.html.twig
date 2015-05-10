@@ -8,9 +8,11 @@
     
     <h1>{{title}}</h1>
     
-    <p><strong>{{city.name}} {{ 'coordinates'|trans|lower }}:</strong>  {{city.lat}} {{city.lng}}<p>
+    <p><strong>{{city.name}} {{ 'coordinates'|trans|lower }}:</strong>  {{city.lat}} {{city.lng}}</p>
     
     {{ google_map(map) }}
+    
+    {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
     
     {% if places|length %}
     

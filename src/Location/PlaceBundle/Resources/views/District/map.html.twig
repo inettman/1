@@ -8,9 +8,11 @@
     
     <h1>{{title}}</h1>
     
-    <p><strong>{{district.name}} {{ 'coordinates'|trans|lower }}:</strong> {{district.lat}} {{district.lng}}<p>
+    <p><strong>{{district.name}} {{ 'coordinates'|trans|lower }}:</strong> {{district.lat}} {{district.lng}}</p>
     
     {{ google_map(map) }}
+    
+    {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
     
     {% if cities|length %}
     

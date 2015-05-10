@@ -7,8 +7,10 @@
 </p>    
 <p>{{ autocomplete_view.html | raw }}</p>
 {{ autocomplete_view.js | raw }}
-
+{{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
 {{ google_map(map) }}
+
+
 
 <script type="text/javascript">
     $(document).ready(function() {
