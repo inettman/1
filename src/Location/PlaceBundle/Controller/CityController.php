@@ -41,13 +41,17 @@ class CityController extends Controller
         
         $title = $city->getName().' '.$translater->trans('on_map');
         
+        $district_name = $city->getGooglePlaceId()!=$district->getGooglePlaceId()?$district->getName().', ':'';
+        
+        $description = $city->getName().', '.$district_name.$region->getName().', '.$country->getName();
+        
         $map = $this->get('ivory_google_map.map');
         
         $map->setAutoZoom(true);
         
         $map->setBound($city->getLatS(), $city->getLngW(), $city->getLatN(), $city->getLngE(), true, true);
         
-        return $this->render('LocationPlaceBundle:City:map.html.twig', array('map' => $map, 'title'=>$title, 'city'=>$city, 'places'=>$places));
+        return $this->render('LocationPlaceBundle:City:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'city'=>$city, 'places'=>$places));
     }
 
 }

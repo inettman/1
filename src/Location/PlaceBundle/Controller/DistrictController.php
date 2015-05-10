@@ -38,13 +38,15 @@ class DistrictController extends Controller
         
         $title = $district->getName().' '.$translater->trans('on_map');
         
+        $description = $district->getName().', '.$region->getName().', '.$country->getName();
+        
         $map = $this->get('ivory_google_map.map');
         
         $map->setAutoZoom(true);
         
         $map->setBound($district->getLatS(), $district->getLngW(), $district->getLatN(), $district->getLngE(), true, true);
         
-        return $this->render('LocationPlaceBundle:District:map.html.twig', array('map' => $map, 'title'=>$title, 'district'=>$district, 'cities'=>$cities));
+        return $this->render('LocationPlaceBundle:District:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'district'=>$district, 'cities'=>$cities));
     }
 
 }

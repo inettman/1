@@ -32,13 +32,15 @@ class CountryController extends Controller
         
         $title = $country->getName().' '.$translater->trans('on_map').' ('.$country->getAddress().')';
         
+        $description = $title;
+        
         $map = $this->get('ivory_google_map.map');
         
         $map->setAutoZoom(true);
         
         $map->setBound($country->getLatS(), $country->getLngW(), $country->getLatN(), $country->getLngE(), true, true);
         
-        return $this->render('LocationPlaceBundle:Country:map.html.twig', array('map' => $map, 'title'=>$title, 'country'=>$country, 'regions'=>$regions));
+        return $this->render('LocationPlaceBundle:Country:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'country'=>$country, 'regions'=>$regions));
     }
 
 }

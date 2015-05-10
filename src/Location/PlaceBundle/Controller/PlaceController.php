@@ -51,6 +51,10 @@ class PlaceController extends Controller
         
         $title = $place->getName().' '.$translater->trans('on_map');
         
+        $district_name = $city->getGooglePlaceId()!=$district->getGooglePlaceId()?$district->getName().', ':'';
+        
+        $description = $place->getName().', '.$city->getName().', '.$district_name.$region->getName().', '.$country->getName();
+        
         $map = $this->get('ivory_google_map.map');
         
         $map->setCenter($place->getLat(), $place->getLng(), true);
@@ -63,7 +67,7 @@ class PlaceController extends Controller
         
         $map->addMarker($marker);
         
-        return $this->render('LocationPlaceBundle:Place:map.html.twig', array('map' => $map, 'title'=>$title, 'place'=>$place));
+        return $this->render('LocationPlaceBundle:Place:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description,  'place'=>$place));
     }
     
     public function searchAction()

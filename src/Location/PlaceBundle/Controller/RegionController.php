@@ -35,13 +35,15 @@ class RegionController extends Controller
         
         $title = $region->getName().' '.$translater->trans('on_map');
         
+        $description = $region->getName().', '.$country->getName();
+        
         $map = $this->get('ivory_google_map.map');
         
         $map->setAutoZoom(true);
         
         $map->setBound($region->getLatS(), $region->getLngW(), $region->getLatN(), $region->getLngE(), true, true);
         
-        return $this->render('LocationPlaceBundle:Region:map.html.twig', array('map' => $map, 'title'=>$title, 'region'=>$region, 'districts'=>$districts));
+        return $this->render('LocationPlaceBundle:Region:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'region'=>$region, 'districts'=>$districts));
     }
 
 }
