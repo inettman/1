@@ -118,6 +118,10 @@
                 <source>description_main</source>
                 <target>Поиск мест на карте по адресу или по названию</target>
             </trans-unit>
+            <trans-unit id="30">
+                <source>read_more</source>
+                <target>Подробнее</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

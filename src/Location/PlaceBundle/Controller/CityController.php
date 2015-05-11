@@ -47,6 +47,8 @@ class CityController extends Controller
         
         $map = $this->get('ivory_google_map.map');
         
+        $map->setMapOption('mapTypeId', 'hybrid');
+        
         $map->setAutoZoom(true);
         
         $map->setBound($city->getLatS(), $city->getLngW(), $city->getLatN(), $city->getLngE(), true, true);

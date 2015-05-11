@@ -1,0 +1,4 @@
+{% if link|length %}
+    <h4><a href="{{link.href}}">{{link.name}}</a></h4>
+    <p><a class="btn btn-default" href="{{link.href}}" role="button">{{ 'read_more'|trans }} &raquo;</a></p>
+{% endif %}

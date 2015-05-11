@@ -49,7 +49,15 @@
                         async: false,
                         success: function(data) {
 
-
+                            if(data.html.length>0){
+                                
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: data.html
+                                });
+                                
+                                infowindow.open(map,marker);
+                                
+                            } 
 
                         }
                     })

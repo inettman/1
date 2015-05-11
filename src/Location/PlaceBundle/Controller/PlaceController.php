@@ -16,6 +16,7 @@ use Location\PlaceBundle\Entity\District;
 use Location\PlaceBundle\Entity\Region;
 use Location\PlaceBundle\Entity\Country;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PlaceController extends Controller
 {
@@ -119,6 +120,8 @@ class PlaceController extends Controller
         $region_arr = array();
         $country_arr = array();
         
+        $link = array();
+        
         foreach($location_arr as $location){
             
            if(in_array('locality', $location['types'])){
@@ -163,6 +166,15 @@ class PlaceController extends Controller
             $country->setLngE(end($lng_bounds));
             
             $em->persist($country);
+            $em->flush();
+            
+            if($place_arr['place_id'] == $country_arr['place_id']){
+                $link = array(
+                    'name' => $country->getName(),
+                    'href' => $this->generateUrl('location_country_map', array('id' => $country->getId()))
+                );
+            }
+            
             
         }
         
@@ -190,6 +202,14 @@ class PlaceController extends Controller
             $region->setCountry($country);
             
             $em->persist($region);
+            $em->flush();
+            
+            if($place_arr['place_id'] == $region_arr['place_id']){
+                $link = array(
+                    'name' => $region->getName(),
+                    'href' => $this->generateUrl('location_region_map', array('id' => $region->getId()))
+                );
+            }
             
         }
         
@@ -218,6 +238,14 @@ class PlaceController extends Controller
                 $district->setRegion($region);
 
                 $em->persist($district);
+                $em->flush();
+                
+                if($place_arr['place_id'] == $district_arr['place_id']){
+                    $link = array(
+                        'name' => $district->getName(),
+                        'href' => $this->generateUrl('location_district_map', array('id' => $district->getId()))
+                    );
+                }
                 
             } elseif($city_arr) {
                 
@@ -246,6 +274,7 @@ class PlaceController extends Controller
                 $district->setRegion($region);
 
                 $em->persist($district);
+                $em->flush();
             }
             
         }
@@ -276,6 +305,14 @@ class PlaceController extends Controller
             $city->setDistrict($district);
             
             $em->persist($city);
+            $em->flush();
+            
+            if($place_arr['place_id'] == $city_arr['place_id']){
+                $link = array(
+                    'name' => $city->getName(),
+                    'href' => $this->generateUrl('location_city_map', array('id' => $city->getId()))
+                );
+            }
             
         }
         
@@ -298,17 +335,22 @@ class PlaceController extends Controller
             $place->setCity($city);
 
             $em->persist($place);
-
-            //return new Response('Created place id '.$place->getId());
+            $em->flush();
+            
+            $link = array(
+                'name' => $place->getName(),
+                'href' => $this->generateUrl('location_place_map', array('id' => $place->getId()))
+            );
             
         }
         
-        $em->flush();
+        //print_r($place_arr);
+        //print_r($location_arr);exit();
+        //return new Response('Find new place');
+ 
+        $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
         
-        print_r($place_arr);
-        print_r($location_arr);exit();
-        
-        return new Response('Find new place');
+        return new JsonResponse(array('html' => $result));
         
     }
 }
