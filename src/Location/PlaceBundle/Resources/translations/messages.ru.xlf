@@ -122,6 +122,10 @@
                 <source>read_more</source>
                 <target>Подробнее</target>
             </trans-unit>
+            <trans-unit id="31">
+                <source>share_text</source>
+                <target>Сделать популярнее:</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
