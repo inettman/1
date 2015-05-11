@@ -84,7 +84,7 @@ class PlaceController extends Controller
         
         $autocomplete->setInputAttributes(array('class' => 'form-control input-lg'));
         
-        $autocomplete->setLanguage('ru');
+        $autocomplete->setLanguage($this->container->getParameter('locale'));
         
         $autocomplete_var = $autocomplete->getJavascriptVariable();
 

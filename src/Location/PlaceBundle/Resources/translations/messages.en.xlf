@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>all</source>
+                <target>All</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>address</source>
+                <target>Address</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>establishment</source>
+                <target>Establishments</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>title_main</source>
+                <target>Search places on map</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>on_map</source>
+                <target>on map</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>site_name</source>
+                <target>Big-Map.net</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>regions</source>
+                <target>Regions</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>districts</source>
+                <target>Districts</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>districts_of_city</source>
+                <target>District of city</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>cities</source>
+                <target>Cities</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>places</source>
+                <target>Places</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>page_main</source>
+                <target>Search on map</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>coordinates</source>
+                <target>Coordinates</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>address_full</source>
+                <target>Address</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>phone</source>
+                <target>Phone</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>sidebur_title</source>
+                <target>Another countries</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>countries_last</source>
+                <target>New countries</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>cities_last</source>
+                <target>New cities</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>places_last</source>
+                <target>New places</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>country_search</source>
+                <target>Find country</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>city_search</source>
+                <target>Find city</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>place_search</source>
+                <target>Find place</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>country_add</source>
+                <target>Add country</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>region_add</source>
+                <target>Add region</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>district_add</source>
+                <target>Add district</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>city_add</source>
+                <target>Add city</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>place_add</source>
+                <target>Add place</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>menu_top_name</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>description_main</source>
+                <target>Search places on map by address or name</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>read_more</source>
+                <target>Read more</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>share_text</source>
+                <target>Make popular:</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

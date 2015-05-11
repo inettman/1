@@ -24,7 +24,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-    translator: { fallback: ru }
+    translator: { fallback: "%locale%" }
 
 # Twig Configuration
 twig:
@@ -95,7 +95,7 @@ ivory_google_map:
             latitude: 48.37
             no_wrap: true
         
-        language: ru
+        language: "%locale%"
 white_october_breadcrumbs:
     separator:          ''
     viewTemplate:       'LocationPlaceBundle:Breadcrumbs:breadcrumbs.html.twig'
