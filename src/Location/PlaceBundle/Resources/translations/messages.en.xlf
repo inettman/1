@@ -36,7 +36,7 @@
             </trans-unit>
             <trans-unit id="9">
                 <source>districts_of_city</source>
-                <target>District of city</target>
+                <target>District of </target>
             </trans-unit>
             <trans-unit id="10">
                 <source>cities</source>
