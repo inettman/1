@@ -38,7 +38,7 @@ class PageController extends Controller
         
         $cities = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:City')
-        ->findBy(array(), array('id'=>'desc'), $limit);
+        ->findBy(array(), array('id'=>'desc'), $limit+5);
         
         $places = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:Place')
