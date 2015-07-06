@@ -15,8 +15,8 @@ class CityRepository extends EntityRepository
     public function getNearestCities($lat, $lng)
     {
         $qb = $this->createQueryBuilder('c')
-            ->where('c.lat BETWEEN :lat-0.1 AND :lat+0.1')
-            ->andWhere('c.lng BETWEEN :lng-0.1 AND :lng+0.1')
+            ->where('c.lat BETWEEN :lat-0.2 AND :lat+0.2')
+            ->andWhere('c.lng BETWEEN :lng-0.2 AND :lng+0.2')
             ->andWhere('c.lng <> :lng')
             ->andWhere('c.lat <> :lat')
             ->setParameter('lat', $lat)
