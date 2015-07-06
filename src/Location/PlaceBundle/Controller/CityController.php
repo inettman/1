@@ -21,6 +21,12 @@ class CityController extends Controller
                 'No city found'
             );
         }
+
+        $cities_nearest = $this->getDoctrine()
+            ->getRepository('LocationPlaceBundle:City')
+            ->getNearestCities($city->getLat(), $city->getLng());
+        
+        //print_r($cities_nearest);exit();
         
         $translater = $this->get('translator');
         
@@ -53,7 +59,7 @@ class CityController extends Controller
         
         $map->setBound($city->getLatS(), $city->getLngW(), $city->getLatN(), $city->getLngE(), true, true);
         
-        return $this->render('LocationPlaceBundle:City:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'city'=>$city, 'places'=>$places));
+        return $this->render('LocationPlaceBundle:City:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description, 'city'=>$city, 'places'=>$places, 'cities_nearest'=>$cities_nearest));
     }
 
 }

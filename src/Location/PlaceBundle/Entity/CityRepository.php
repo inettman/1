@@ -11,5 +11,20 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class CityRepository extends EntityRepository
-{
+{   
+    public function getNearestCities($lat, $lng)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.lat BETWEEN :lat-0.1 AND :lat+0.1')
+            ->andWhere('c.lng BETWEEN :lng-0.1 AND :lng+0.1')
+            ->andWhere('c.lng <> :lng')
+            ->andWhere('c.lat <> :lat')
+            ->setParameter('lat', $lat)
+            ->setParameter('lng', $lng)
+            ->orderBy('c.name', 'ASC')
+            ->getQuery();
+
+        return $qb->getResult();
+
+    }
 }

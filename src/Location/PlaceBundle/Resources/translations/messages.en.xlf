@@ -126,6 +126,14 @@
                 <source>share_text</source>
                 <target>Make popular:</target>
             </trans-unit>
+            <trans-unit id="32">
+                <source>coordinates_center</source>
+                <target>Coordinates of the center</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>cities_nearest</source>
+                <target>Nearest cities</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
