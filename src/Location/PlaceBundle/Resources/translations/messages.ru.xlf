@@ -134,6 +134,10 @@
                 <source>cities_nearest</source>
                 <target>Ближайшие населенные пункты</target>
             </trans-unit>
+            <trans-unit id="34">
+                <source>km</source>
+                <target>км</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

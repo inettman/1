@@ -13,10 +13,11 @@ use Doctrine\ORM\EntityRepository;
 class CityRepository extends EntityRepository
 {   
     public function getNearestCities($lat, $lng)
-    {
+    {   
+        $radius = 0.15;
         $qb = $this->createQueryBuilder('c')
-            ->where('c.lat BETWEEN :lat-0.15 AND :lat+0.15')
-            ->andWhere('c.lng BETWEEN :lng-0.15 AND :lng+0.15')
+            ->where('c.lat BETWEEN :lat-'.$radius.' AND :lat+'.$radius)
+            ->andWhere('c.lng BETWEEN :lng-'.$radius.' AND :lng+'.$radius)
             ->andWhere('c.lng <> :lng')
             ->andWhere('c.lat <> :lat')
             ->setParameter('lat', $lat)
