@@ -138,6 +138,22 @@
                 <source>km</source>
                 <target>km</target>
             </trans-unit>
+            <trans-unit id="35">
+                <source>geographic size</source>
+                <target>Geographic size (width, length)</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>object width</source>
+                <target>Width (east-west)</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>object length</source>
+                <target>Length (north-south)</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>diagonal</source>
+                <target>Diagonal</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

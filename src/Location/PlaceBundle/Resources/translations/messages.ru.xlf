@@ -138,6 +138,22 @@
                 <source>km</source>
                 <target>км</target>
             </trans-unit>
+            <trans-unit id="35">
+                <source>geographic size</source>
+                <target>Географические размеры (длина, ширина)</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>object width</source>
+                <target>Ширина (восток-запад)</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>object length</source>
+                <target>Длина (север-юг)</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>diagonal</source>
+                <target>Диагональ</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

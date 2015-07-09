@@ -8,11 +8,19 @@
     
     <h1>{{title}}</h1>
     
-    <p><strong>{{city.name}} {{ 'coordinates_center'|trans|lower }}:</strong>  {{city.lat}} {{city.lng}}</p>
+    <p>{{city.name}} {{ 'coordinates_center'|trans|lower }}:  {{city.lat}} {{city.lng}}</p>
     
     {{ google_map(map) }}
     
     {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
+    
+    <h2>{{ 'geographic size'|trans }}</h2>
+    
+    <ul>
+        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latN, 'lng': city.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngW}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+    </ul>
     
     {% if places|length %}
     
