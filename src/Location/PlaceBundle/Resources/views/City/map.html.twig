@@ -17,9 +17,9 @@
     <h2>{{ 'geographic size'|trans }}</h2>
     
     <ul>
-        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latN, 'lng': city.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngW}, 'km')}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latN, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngW}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
     </ul>
     
     {% if places|length %}
@@ -43,7 +43,7 @@
         <p>
             <ul>
             {% for city_nearest in cities_nearest %}
-                <li><a href="{{ path('location_city_map', { 'id': city_nearest.id }) }}">{{ city_nearest.name }}</a> ({{coordinate.getDistance({'lat': city.lat, 'lng': city.lng}, {'lat': city_nearest.lat, 'lng': city_nearest.lng}, 'km')}} {{ 'km'|trans }})</li>
+                <li><a href="{{ path('location_city_map', { 'id': city_nearest.id }) }}">{{ city_nearest.name }}</a> ({{coordinate.getDistance({'lat': city.lat, 'lng': city.lng}, {'lat': city_nearest.lat, 'lng': city_nearest.lng}, 'km', 1)}} {{ 'km'|trans }})</li>
             {% endfor %}
             </ul>
         </p>

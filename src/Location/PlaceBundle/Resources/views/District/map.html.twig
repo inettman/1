@@ -14,6 +14,14 @@
     
     {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
     
+    <h2>{{ 'geographic size'|trans }}</h2>
+    
+    <ul>
+        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latN, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngW}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+    </ul>
+    
     {% if cities|length %}
     
         <h2>{% trans %}cities{% endtrans %}</h2>
