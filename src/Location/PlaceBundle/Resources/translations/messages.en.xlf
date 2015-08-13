@@ -16,11 +16,11 @@
             </trans-unit>
             <trans-unit id="4">
                 <source>title_main</source>
-                <target>Search places on map</target>
+                <target>Search places on the map</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>on_map</source>
-                <target>on map</target>
+                <target>on the map</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>site_name</source>

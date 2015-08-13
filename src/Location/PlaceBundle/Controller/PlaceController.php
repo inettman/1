@@ -54,7 +54,7 @@ class PlaceController extends Controller
         
         $district_name = $city->getGooglePlaceId()!=$district->getGooglePlaceId()?$district->getName().', ':'';
         
-        $description = $place->getName().', '.$city->getName().', '.$district_name.$region->getName().', '.$country->getName();
+        $description = $city->getName().', '.$district_name.$region->getName().', '.$country->getName();
         
         $map = $this->get('ivory_google_map.map');
         

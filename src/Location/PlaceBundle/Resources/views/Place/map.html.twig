@@ -2,9 +2,9 @@
 
 {% block breadcrumbs %}{{ wo_render_breadcrumbs({ lastActive: '1' }) }}{% endblock %}
 
-{% block title %}{{title}}{% endblock%}
+{% block title %}{{title}}. {{description}}{% endblock%}
 
-{% block description %}{{description}}{% endblock %}
+{% block description %}{% if place.address|length %}{{place.name}}, {{place.address}}{% else %}{{description}}{% endif %}{% endblock %}
 
 {% block body %}
     
