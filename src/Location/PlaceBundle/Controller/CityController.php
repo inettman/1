@@ -26,8 +26,6 @@ class CityController extends Controller
             ->getRepository('LocationPlaceBundle:City')
             ->getNearestCities($city->getLat(), $city->getLng());
         
-        //print_r($cities_nearest);exit();
-        
         $translater = $this->get('translator');
         
         $places = $city->getPlaces();
@@ -49,7 +47,7 @@ class CityController extends Controller
         
         $district_name = $city->getGooglePlaceId()!=$district->getGooglePlaceId()?$district->getName().', ':'';
         
-        $description = $city->getName().', '.$district_name.$region->getName().', '.$country->getName();
+        $description = $city->getName().' '.$translater->trans('the map with streets and buildings').', '.$district_name.$region->getName().', '.$country->getName();
         
         $map = $this->get('ivory_google_map.map');
         

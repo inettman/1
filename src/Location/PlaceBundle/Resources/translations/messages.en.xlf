@@ -154,6 +154,10 @@
                 <source>diagonal</source>
                 <target>Diagonal</target>
             </trans-unit>
+            <trans-unit id="39">
+                <source>the map with streets and buildings</source>
+                <target>the map with streets and buildings</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
