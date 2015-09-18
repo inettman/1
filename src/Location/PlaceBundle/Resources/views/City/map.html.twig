@@ -9,7 +9,7 @@
     <h1>{{title}}</h1>
     
     <p>{{city.name}} {{ 'coordinates_center'|trans|lower }}:  {{city.lat}} {{city.lng}}</p>
-    
+    {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
     {{ google_map(map) }}
     
     {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
