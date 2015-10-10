@@ -28,6 +28,12 @@ location_city_map:
     requirements:
         _method:  GET
         id: \d+
+location_city_weather:
+    pattern:     /city/weather/{id}
+    defaults: { _controller: LocationPlaceBundle:City:weather }
+    requirements:
+        _method:  GET
+        id: \d+
 location_place_map:
     pattern:     /place/map/{id}
     defaults: { _controller: LocationPlaceBundle:Place:map }

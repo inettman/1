@@ -1,3 +1,10 @@
 .bookmarks *{
     box-sizing: content-box;
 }
+.weather .temperature {
+    font-size: 30px;
+}
+.weather {
+    margin-top:20px;
+    margin-bottom:20px;
+}

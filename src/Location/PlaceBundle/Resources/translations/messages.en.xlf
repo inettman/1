@@ -20,7 +20,7 @@
             </trans-unit>
             <trans-unit id="5">
                 <source>on_map</source>
-                <target>on the map</target>
+                <target>map</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>site_name</source>
@@ -157,6 +157,62 @@
             <trans-unit id="39">
                 <source>the map with streets and buildings</source>
                 <target>the map with streets and buildings</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>weather forecast</source>
+                <target>Weather forecast</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>weather</source>
+                <target>Weather</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>format_date</source>
+                <target>Y-m-d</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>format_datetime</source>
+                <target>Y-m-d H:i</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>pressure dimension</source>
+                <target>hpa</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>pressure</source>
+                <target>Pressure</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>humidity</source>
+                <target>Humidity</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>wind dimension</source>
+                <target>m/s</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Wind</source>
+                <target>wind</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>wind speed</source>
+                <target>wind speed</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>wind directions</source>
+                <target>North,North Northeast,Northeast,East Northeast,East,East Southeast,Southeast,South Southeast,South,South Southwest,Southwest,West Southwest,West,West Northwest,Northwest,North Northwest</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>wind direction</source>
+                <target>wind direction</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>hourly weather</source>
+                <target>Hourly weather</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>map</source>
+                <target>Map</target>
             </trans-unit>
         </body>
     </file>

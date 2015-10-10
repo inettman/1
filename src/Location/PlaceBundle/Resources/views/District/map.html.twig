@@ -29,7 +29,9 @@
         <p>
             <ul>
             {% for city in cities %}
-                <li><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{ city.name }}</a></li>
+                <li>{{ city.name }}:
+                <small><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{ 'map'|trans|lower }}</a>, <a href="{{ path('location_city_weather', { 'id': city.id }) }}">{{ 'weather'|trans|lower }}</a></small>
+                </li>
             {% endfor %}
             </ul>
         </p>

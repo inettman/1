@@ -158,6 +158,62 @@
                 <source>the map with streets and buildings</source>
                 <target>карта с улицами и домами</target>
             </trans-unit>
+            <trans-unit id="40">
+                <source>weather forecast</source>
+                <target>Прогноз погоды</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>weather</source>
+                <target>Погода</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>format_date</source>
+                <target>d.m.Y</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>format_datetime</source>
+                <target>d.m.Y H:i</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>pressure dimension</source>
+                <target>мм рт. ст.</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>pressure</source>
+                <target>Давление</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>humidity</source>
+                <target>Влажность</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>wind dimension</source>
+                <target>м/с</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>wind</source>
+                <target>Ветер</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>wind speed</source>
+                <target>Скорость ветра</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>wind directions</source>
+                <target>Северный,Северный Северо-восточный,Северо-восточный,Восточный Северо-восточный,Восточный,Восточный Юго-восточный,Юго-восточный,Южный Юго-восточный,Южный,Южный Юго-западный,Юго-западный,Западный Юго-западный,Западный,Западный Северо-западный,Северо-западный,Северный Северо-западный</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>wind direction</source>
+                <target>Направление ветра</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>hourly weather</source>
+                <target>Погода почасово</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>map</source>
+                <target>Карта</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
