@@ -7,7 +7,7 @@
 {% block body %}
     
     <h1>{{title}}</h1>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs weather_tabs">
         <li class="active"><a href="#{{weather.current.date}}" data-toggle="tab">{{weather.current.date|date("H:i")}}</a></li>
         
         {% for hourly in weather.hourly %}

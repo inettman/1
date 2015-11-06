@@ -8,3 +8,6 @@
     margin-top:20px;
     margin-bottom:20px;
 }
+.weather_tabs a {
+    font-weight: bold;
+}
