@@ -44,9 +44,9 @@
         <h2>{% trans %}cities_nearest{% endtrans %}</h2>
 
         <p>
-            <ul>
+            <ul class='list-group'>
             {% for city_nearest in cities_nearest %}
-                <li><a href="{{ path('location_city_map', { 'id': city_nearest.id }) }}">{{ city_nearest.name }}</a> ({{coordinate.getDistance({'lat': city.lat, 'lng': city.lng}, {'lat': city_nearest.lat, 'lng': city_nearest.lng}, 'km', 1)}} {{ 'km'|trans }})</li>
+                <li class='list-group-item'><a href="{{ path('location_city_map', { 'id': city_nearest.id }) }}">{{ city_nearest.name }}</a> ({{coordinate.getDistance({'lat': city.lat, 'lng': city.lng}, {'lat': city_nearest.lat, 'lng': city_nearest.lng}, 'km', 1)}} {{ 'km'|trans }})</li>
             {% endfor %}
             </ul>
         </p>
