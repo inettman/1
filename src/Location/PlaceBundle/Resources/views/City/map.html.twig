@@ -19,10 +19,10 @@
     
     <h2>{{ 'geographic size'|trans }}</h2>
     
-    <ul>
-        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latN, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngW}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
+    <ul class='list-group'>
+        <li class='list-group-item'>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latN, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
+        <li class='list-group-item'>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngW}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
+        <li class='list-group-item'>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': city.latN, 'lng': city.lngW}, {'lat': city.latS, 'lng': city.lngE}, 'km', 1)}} {{ 'km'|trans }}</strong></li>
     </ul>
     
     {% if places|length %}
@@ -30,9 +30,9 @@
         <h2>{% trans %}places{% endtrans %}</h2>
 
         <p>
-            <ul>
+            <ul class='list-group'>
             {% for place in places %}
-                <li><a href="{{ path('location_place_map', { 'id': place.id }) }}">{{ place.name }}</a></li>
+                <li class='list-group-item'><a href="{{ path('location_place_map', { 'id': place.id }) }}">{{ place.name }}</a></li>
             {% endfor %}
             </ul>
         </p>

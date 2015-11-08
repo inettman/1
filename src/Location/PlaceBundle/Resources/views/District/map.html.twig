@@ -16,10 +16,10 @@
     
     <h2>{{ 'geographic size'|trans }}</h2>
     
-    <ul>
-        <li>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latN, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngW}, 'km')}} {{ 'km'|trans }}</strong></li>
-        <li>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+    <ul class='list-group'>
+        <li class='list-group-item'>{{ 'object width'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latN, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li class='list-group-item'>{{ 'object length'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngW}, 'km')}} {{ 'km'|trans }}</strong></li>
+        <li class='list-group-item'>{{ 'diagonal'|trans }}:  <strong>{{coordinate.getDistance({'lat': district.latN, 'lng': district.lngW}, {'lat': district.latS, 'lng': district.lngE}, 'km')}} {{ 'km'|trans }}</strong></li>
     </ul>
     
     {% if cities|length %}
@@ -27,9 +27,9 @@
         <h2>{% trans %}cities{% endtrans %}</h2>
 
         <p>
-            <ul>
+            <ul class='list-group'>
             {% for city in cities %}
-                <li>{{ city.name }}:
+                <li class='list-group-item'>{{ city.name }}:
                 <small><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{ 'map'|trans|lower }}</a>, <a href="{{ path('location_city_weather', { 'id': city.id }) }}">{{ 'weather'|trans|lower }}</a></small>
                 </li>
             {% endfor %}
