@@ -343,7 +343,7 @@ class PlaceController extends Controller
             );
             
         }
-        print_r($location_arr);exit();
+        //print_r($location_arr);exit();
         //print_r($place_arr);
         //print_r($location_arr);exit();
         //return new Response('Find new place');
