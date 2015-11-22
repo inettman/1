@@ -144,7 +144,7 @@ class PlaceController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         
-        if($country_arr){
+        if($country_arr && $country_arr['geometry']['location']){
 
             $country = $this->getDoctrine()->getRepository('LocationPlaceBundle:Country')->findOneBy(array('google_place_id'=>$country_arr['place_id']));
             
@@ -178,7 +178,7 @@ class PlaceController extends Controller
             
         }
         
-        if($region_arr && isset($country)){
+        if($region_arr && isset($country) && $region_arr['geometry']['location']){
 
             $region = $this->getDoctrine()->getRepository('LocationPlaceBundle:Region')->findOneBy(array('google_place_id'=>$region_arr['place_id']));
             
@@ -215,7 +215,7 @@ class PlaceController extends Controller
         
         if(isset($region)) {
             
-            if($district_arr) {
+            if($district_arr && $district_arr['geometry']['location']) {
                 $district = $this->getDoctrine()->getRepository('LocationPlaceBundle:District')->findOneBy(array('google_place_id'=>$district_arr['place_id']));
 
                 if(!$district){
@@ -247,7 +247,7 @@ class PlaceController extends Controller
                     );
                 }
                 
-            } elseif($city_arr) {
+            } elseif($city_arr && $city_arr['geometry']['location']) {
                 
                 $district = $this->getDoctrine()->getRepository('LocationPlaceBundle:District')->findOneBy(array('google_place_id'=>$city_arr['place_id']));
 
@@ -280,7 +280,7 @@ class PlaceController extends Controller
         }
         
         
-        if($city_arr && isset($district)){
+        if($city_arr && isset($district) && $city_arr['geometry']['location']){
 
             $city = $this->getDoctrine()->getRepository('LocationPlaceBundle:City')->findOneBy(array('google_place_id'=>$city_arr['place_id']));
             
@@ -316,7 +316,7 @@ class PlaceController extends Controller
             
         }
         
-        if(in_array('establishment', $place_arr['types']) && !in_array('continent', $place_arr['types']) && isset($city)){
+        if(in_array('establishment', $place_arr['types']) && !in_array('continent', $place_arr['types']) && isset($city) && $place_arr['geometry']['location']){
             
             $place = $this->getDoctrine()->getRepository('LocationPlaceBundle:Place')->findOneBy(array('google_place_id'=>$place_arr['place_id']));
             
@@ -343,7 +343,7 @@ class PlaceController extends Controller
             );
             
         }
-        
+        print_r($location_arr);exit();
         //print_r($place_arr);
         //print_r($location_arr);exit();
         //return new Response('Find new place');
