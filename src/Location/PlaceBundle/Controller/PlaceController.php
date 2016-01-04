@@ -344,12 +344,12 @@ class PlaceController extends Controller
             
         }
         //print_r($location_arr);exit();
-        //print_r($place_arr);
-        //print_r($location_arr);exit();
+//        dump($place_arr);
+//        dump($location_arr);exit();
         //return new Response('Find new place');
  
         $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
-        
+
         return new JsonResponse(array('html' => $result));
         
     }
