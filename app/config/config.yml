@@ -88,7 +88,7 @@ ivory_google_map:
         width: "100%"
 
         # Map height
-        height: "500px"
+        height: "450px"
         
         # Center coordinate of the map
         # If the autozoom flag is enabled, the center is not used

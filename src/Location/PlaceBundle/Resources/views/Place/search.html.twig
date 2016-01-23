@@ -1,3 +1,5 @@
+{{ include('LocationPlaceBundle::Banner/top.html.twig') }}
+<hr>
 <p>
     {% for type in autocomplete_types %}
         <label class="radio-inline">
@@ -7,15 +9,11 @@
 </p>    
 <p>{{ autocomplete_view.html | raw }}</p>
 {{ autocomplete_view.js | raw }}
-{{ include('LocationPlaceBundle::Banner/top.html.twig') }}
 {{ google_map(map) }}
 {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
 
-
-
 <script type="text/javascript">
     $(document).ready(function() {
-
        var map = {{vars['map']}};
        var autocomplete = {{vars['autocomplete']}};
        geocoder = new google.maps.Geocoder();
@@ -84,9 +82,6 @@
             } 
             autocomplete.setTypes(types);
         });
-
-
-
     });
 </script>
 
