@@ -22,7 +22,6 @@ class PlaceController extends Controller
 {
     public function mapAction($id)
     {   
-        
         $place = $this->getDoctrine()
             ->getRepository('LocationPlaceBundle:Place')
             ->find($id);
@@ -44,10 +43,11 @@ class PlaceController extends Controller
         $country = $region->getCountry();
         
         $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addRouteItem($translater->trans('page_main'), 'location_page_index');
-        $breadcrumbs->addRouteItem($country->getName(), 'location_country_map', array('id'=>$country->getId()));
-        $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
-        $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        if($district->getGooglePlaceId() == $city->getGooglePlaceId()) {
+            $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
+        } else {
+            $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        }
         $breadcrumbs->addRouteItem($city->getName(), 'location_city_map', array('id'=>$city->getId()));
         
         $title = $place->getName().' '.$translater->trans('on_map');
@@ -71,12 +71,9 @@ class PlaceController extends Controller
         return $this->render('LocationPlaceBundle:Place:map.html.twig', array('map' => $map, 'title'=>$title, 'description'=>$description,  'place'=>$place));
     }
     
-    public function searchAction()
+    public function searchAction($map)
     {   
-        
         $translater = $this->get('translator');
-
-        $map = $this->get('ivory_google_map.map');
 
         $map_var = $map->getJavascriptVariable();
 
@@ -102,9 +99,7 @@ class PlaceController extends Controller
         $autocomplete_types[] = array('title' => $translater->trans('all'), 'value' => '');
         $autocomplete_types[] = array('title' => $translater->trans('address'), 'value' => 'address');
         $autocomplete_types[] = array('title' => $translater->trans('establishment'), 'value' => 'establishment');
-        
-        
-        
+
         return $this->render('LocationPlaceBundle:Place:search.html.twig', array('map' => $map, 'autocomplete_view' => $autocomplete_view, 'vars' =>$vars, 'autocomplete_types' => $autocomplete_types));
     }
     
@@ -120,7 +115,7 @@ class PlaceController extends Controller
         $region_arr = array();
         $country_arr = array();
         
-        $link = array();
+        $result = '';
         
         foreach($location_arr as $location){
             
@@ -173,6 +168,7 @@ class PlaceController extends Controller
                     'name' => $country->getName(),
                     'href' => $this->generateUrl('location_country_map', array('id' => $country->getId()))
                 );
+                $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
             }
             
             
@@ -209,6 +205,7 @@ class PlaceController extends Controller
                     'name' => $region->getName(),
                     'href' => $this->generateUrl('location_region_map', array('id' => $region->getId()))
                 );
+                $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
             }
             
         }
@@ -245,6 +242,7 @@ class PlaceController extends Controller
                         'name' => $district->getName(),
                         'href' => $this->generateUrl('location_district_map', array('id' => $district->getId()))
                     );
+                    $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
                 }
                 
             } elseif($city_arr && $city_arr['geometry']['location']) {
@@ -308,10 +306,7 @@ class PlaceController extends Controller
             $em->flush();
             
             if($place_arr['place_id'] == $city_arr['place_id']){
-                $link = array(
-                    'name' => $city->getName(),
-                    'href' => $this->generateUrl('location_city_map', array('id' => $city->getId()))
-                );
+                $result = $this->renderView('LocationPlaceBundle:Map:info_city.html.twig', array('city' => $city));
             }
             
         }
@@ -341,14 +336,13 @@ class PlaceController extends Controller
                 'name' => $place->getName(),
                 'href' => $this->generateUrl('location_place_map', array('id' => $place->getId()))
             );
+            $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
             
         }
         //print_r($location_arr);exit();
 //        dump($place_arr);
 //        dump($location_arr);exit();
         //return new Response('Find new place');
- 
-        $result = $this->renderView('LocationPlaceBundle:Map:info.html.twig', array('link' => $link));
 
         return new JsonResponse(array('html' => $result));
         

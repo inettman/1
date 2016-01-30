@@ -9,7 +9,8 @@ class PageController extends Controller
 {
     public function indexAction()
     {   
-        return $this->render('LocationPlaceBundle:Page:index.html.twig');
+        $map = $this->get('ivory_google_map.map');
+        return $this->render('LocationPlaceBundle:Page:index.html.twig', ['map' => $map]);
     }
     
     public function sidebarAction()

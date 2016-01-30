@@ -31,8 +31,6 @@ class DistrictController extends Controller
         $country = $region->getCountry();
         
         $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addRouteItem($translater->trans('page_main'), 'location_page_index');
-        $breadcrumbs->addRouteItem($country->getName(), 'location_country_map', array('id'=>$country->getId()));
         $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
         $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
         

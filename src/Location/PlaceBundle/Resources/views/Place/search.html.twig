@@ -14,11 +14,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-       var map = {{vars['map']}};
-       var autocomplete = {{vars['autocomplete']}};
-       geocoder = new google.maps.Geocoder();
+        var map = {{vars['map']}};
+        var autocomplete = {{vars['autocomplete']}};
+        geocoder = new google.maps.Geocoder();
 
-       google.maps.event.addListener(autocomplete, 'place_changed', function(){
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
 
             var place = autocomplete.getPlace(); 
 
@@ -34,7 +34,6 @@
             });
 
             marker.setMap(map);
-
 
             place.url = [];
 
@@ -56,7 +55,6 @@
                         dataType: "json",
                         async: false,
                         success: function(data) {
-
                             if(data.html.length>0){
                                 
                                 var infowindow = new google.maps.InfoWindow({
@@ -64,15 +62,11 @@
                                 });
                                 
                                 infowindow.open(map,marker);
-                                
                             } 
-
                         }
                     })
                 } 
-
             });
-
         });
 
         $('input[name=\'autocomplete_option\']').click(function(){

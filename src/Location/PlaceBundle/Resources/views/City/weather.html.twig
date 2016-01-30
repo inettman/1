@@ -42,13 +42,7 @@
         {% endfor %}
     </div>
     
-    {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
-    
-    {{ google_map(map) }}
-    
-    
-    
-    {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
+    {{ render(controller('LocationPlaceBundle:Place:search', {'map':map})) }}
     
     {% if cities_nearest|length %}
     

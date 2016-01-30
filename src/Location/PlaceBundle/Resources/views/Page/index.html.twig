@@ -6,7 +6,7 @@
     
     <h1>{% trans %}title_main{% endtrans %}</h1>
     
-    {{ render(controller('LocationPlaceBundle:Place:search')) }}
+    {{ render(controller('LocationPlaceBundle:Place:search', {'map':map})) }}
 
 {% endblock %}
 

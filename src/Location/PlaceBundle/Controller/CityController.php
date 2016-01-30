@@ -11,7 +11,6 @@ class CityController extends Controller
 {
     public function mapAction($id)
     {   
-        
         $city = $this->getDoctrine()
             ->getRepository('LocationPlaceBundle:City')
             ->find($id);
@@ -37,10 +36,11 @@ class CityController extends Controller
         $country = $region->getCountry();
         
         $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addRouteItem($translater->trans('page_main'), 'location_page_index');
-        $breadcrumbs->addRouteItem($country->getName(), 'location_country_map', array('id'=>$country->getId()));
-        $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
-        $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        if($district->getGooglePlaceId() == $city->getGooglePlaceId()) {
+            $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
+        } else {
+            $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        }
         $breadcrumbs->addRouteItem($city->getName(), 'location_city_map', array('id'=>$city->getId()));
         
         $title = $city->getName().' '.$translater->trans('on_map');
@@ -85,10 +85,11 @@ class CityController extends Controller
         $country = $region->getCountry();
         
         $breadcrumbs = $this->get("white_october_breadcrumbs");
-        $breadcrumbs->addRouteItem($translater->trans('page_main'), 'location_page_index');
-        $breadcrumbs->addRouteItem($country->getName(), 'location_country_map', array('id'=>$country->getId()));
-        $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
-        $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        if($district->getGooglePlaceId() == $city->getGooglePlaceId()) {
+            $breadcrumbs->addRouteItem($region->getName(), 'location_region_map', array('id'=>$region->getId()));
+        } else {
+            $breadcrumbs->addRouteItem($district->getName(), 'location_district_map', array('id'=>$district->getId()));
+        }
         $breadcrumbs->addRouteItem($city->getName(), 'location_city_weather', array('id'=>$city->getId()));
         
         $title = $city->getName().' '.$translater->trans('weather');

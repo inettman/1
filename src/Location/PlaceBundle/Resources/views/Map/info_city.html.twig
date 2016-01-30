@@ -1,0 +1,5 @@
+<h4>{{city.name}}</h4>
+<ul>
+    <li><a href="{{ path('location_city_map', { 'id': city.id }) }}">{{ 'map'|trans|lower }}</a></li>
+    <li><a href="{{ path('location_city_weather', { 'id': city.id }) }}">{{ 'weather forecast'|trans|lower }}</a></li>
+</ul>

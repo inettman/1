@@ -9,10 +9,7 @@
     <h1>{{title}}</h1>
 
     <p><strong>{{country.name}} {{ 'coordinates'|trans|lower }}:</strong> {{country.lat}} {{country.lng}}</p>
-    {{ include('LocationPlaceBundle::Banner/top.html.twig') }}    
-    {{ google_map(map) }}
-    
-    {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
+    {{ render(controller('LocationPlaceBundle:Place:search', {'map':map})) }}
     
     <h2>{{ 'geographic size'|trans }}</h2>
     

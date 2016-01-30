@@ -19,10 +19,7 @@
     {% endif %}
     
     <p><strong>{{ 'coordinates'|trans }}:</strong>  {{place.lat}} {{place.lng}}</p>
-    {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
-    {{ google_map(map) }}
-    
-    {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
+    {{ render(controller('LocationPlaceBundle:Place:search', {'map':map})) }}
 
 {% endblock %}
 
