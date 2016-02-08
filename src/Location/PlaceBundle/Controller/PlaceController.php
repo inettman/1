@@ -79,10 +79,10 @@ class PlaceController extends Controller
 
         $autocomplete = new Autocomplete();
         
-        $autocomplete->setInputAttributes(array('class' => 'form-control input-lg'));
+        $autocomplete->setInputAttributes(['class' => 'form-control input-lg', 'placeholder' => $translater->trans('search placeholder')]);
         
         $autocomplete->setLanguage($this->container->getParameter('locale'));
-        
+
         $autocomplete_var = $autocomplete->getJavascriptVariable();
 
         $autocompleteHelper = new AutocompleteHelper();

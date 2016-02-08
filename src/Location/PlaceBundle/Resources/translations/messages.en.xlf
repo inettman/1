@@ -214,6 +214,10 @@
                 <source>map</source>
                 <target>Map</target>
             </trans-unit>
+            <trans-unit id="54">
+                <source>search placeholder</source>
+                <target>Search text</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

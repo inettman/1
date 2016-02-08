@@ -214,6 +214,10 @@
                 <source>map</source>
                 <target>Карта</target>
             </trans-unit>
+            <trans-unit id="54">
+                <source>search placeholder</source>
+                <target>Текст поиска</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,9 +1,8 @@
 {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
-<hr>
 
 <div class="input-group bottom_space">
     <div class="input-group-btn">
-        <button id="autocomplete_toogle" type="button" class="btn btn-lg btn-default dropdown-toggle search_button" data-toggle="dropdown"><span class="title">{{ autocomplete_types.0.title }}</span> <span class="caret"></span></button>
+        <button id="autocomplete_toogle" type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown"><span class="title">{{ autocomplete_types.0.title }}</span> <span class="caret"></span></button>
         <ul class="dropdown-menu pull-left" id="autocomplete_option">
             {% for type in autocomplete_types %}
                 <li data-autocomplete_type="{{type.value}}"><span class="extend">{{type.title}}</span></li>
@@ -25,12 +24,12 @@
 
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
 
-            var place = autocomplete.getPlace(); 
+            var place = autocomplete.getPlace();
 
             if (place.geometry.viewport) {
-                map.fitBounds(place.geometry.viewport); 
-            } else { 
-                map.setCenter(place.geometry.location); 
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
                 map.setZoom(16);
             }
 
@@ -46,8 +45,8 @@
             {
                 if (key=="lat" || key=="lng") {
                     return value();
-                }    
-                else 
+                }
+                else
                     return value;
             }
 
@@ -61,16 +60,16 @@
                         async: false,
                         success: function(data) {
                             if(data.html.length>0){
-                                
+
                                 var infowindow = new google.maps.InfoWindow({
                                     content: data.html
                                 });
-                                
+
                                 infowindow.open(map,marker);
-                            } 
+                            }
                         }
                     })
-                } 
+                }
             });
         });
 
