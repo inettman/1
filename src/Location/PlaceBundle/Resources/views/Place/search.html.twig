@@ -1,13 +1,18 @@
 {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
 <hr>
-<p>
-    {% for type in autocomplete_types %}
-        <label class="radio-inline">
-            <input type="radio" name="autocomplete_option" value="{{type.value}}" {% if type.value==false %} checked="ckecked" {% endif %}> {{type.title}}
-        </label>
-    {% endfor %}
-</p>    
-<p>{{ autocomplete_view.html | raw }}</p>
+
+<div class="input-group bottom_space">
+    <div class="input-group-btn">
+        <button id="autocomplete_toogle" type="button" class="btn btn-lg btn-default dropdown-toggle search_button" data-toggle="dropdown"><span class="title">{{ autocomplete_types.0.title }}</span> <span class="caret"></span></button>
+        <ul class="dropdown-menu pull-left" id="autocomplete_option">
+            {% for type in autocomplete_types %}
+                <li data-autocomplete_type="{{type.value}}"><span class="extend">{{type.title}}</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {{ autocomplete_view.html | raw }}
+</div>
+
 {{ autocomplete_view.js | raw }}
 {{ google_map(map) }}
 {{ include('LocationPlaceBundle::Social/bookmarks.html.twig') }}
@@ -69,12 +74,13 @@
             });
         });
 
-        $('input[name=\'autocomplete_option\']').click(function(){
+        $('#autocomplete_option li').click(function(){
             var types = [];
-            if($(this).val()){
-                types = [''+$(this).val()+''];
-            } 
+            if($(this).data('autocomplete_type')){
+                types = [''+$(this).data('autocomplete_type')+''];
+            }
             autocomplete.setTypes(types);
+            $('#autocomplete_toogle').find('.title').text($(this).text());
         });
     });
 </script>

@@ -11,3 +11,24 @@
 .weather_tabs a {
     font-weight: bold;
 }
+.bottom_space {
+    margin-bottom:10px;
+}
+.dropdown-menu > li > span.extend {
+    clear: both;
+    color: #333;
+    display: block;
+    font-weight: 400;
+    line-height: 1.42857;
+    padding: 3px 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.dropdown-menu > li > span.extend:focus, .dropdown-menu > li > span.extend:hover {
+    background-color: #f5f5f5;
+    color: #262626;
+    text-decoration: none;
+}
+.search_button {
+    width: 134px;
+}

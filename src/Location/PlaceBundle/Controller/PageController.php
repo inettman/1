@@ -17,35 +17,35 @@ class PageController extends Controller
     {   
         $countries = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:Country')
-        ->findBy(array(), array('name'=>'asc'));
+        ->findBy([], ['name'=>'asc']);
         
-        return $this->render('LocationPlaceBundle:Page:sidebar.html.twig', array('countries'=>$countries));
+        return $this->render('LocationPlaceBundle:Page:sidebar.html.twig', ['countries'=>$countries]);
     }
     
     public function menuTopAction()
     {   
         $countries = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:Country')
-        ->findBy(array('id' => array(1, 2, 5)), array('name'=>'asc'));
+        ->findBy(array('id' => [1, 2, 5]), ['name'=>'asc']);
         
-        return $this->render('LocationPlaceBundle:Page:menu_top.html.twig', array('countries'=>$countries));
+        return $this->render('LocationPlaceBundle:Page:menu_top.html.twig', ['countries'=>$countries]);
     }
     
     public function contentBottomAction($limit = 5)
     {   
         $countries = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:Country')
-        ->findBy(array(), array('id'=>'desc'), $limit);
+        ->findBy([], ['id'=>'desc'], $limit);
         
         $cities = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:City')
-        ->findBy(array(), array('id'=>'desc'), $limit+5);
+        ->findBy([], ['id'=>'desc'], $limit+5);
         
         $places = $this->getDoctrine()
         ->getRepository('LocationPlaceBundle:Place')
-        ->findBy(array(), array('id'=>'desc'), $limit);
+        ->findBy([], ['id'=>'desc'], $limit);
         
-        return $this->render('LocationPlaceBundle:Page:content_bottom.html.twig', array('countries'=>$countries, 'cities'=>$cities, 'places'=>$places));
+        return $this->render('LocationPlaceBundle:Page:content_bottom.html.twig', ['countries'=>$countries, 'cities'=>$cities, 'places'=>$places]);
     }
 
 }
