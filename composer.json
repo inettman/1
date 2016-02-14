@@ -23,7 +23,9 @@
         "willdurand/geocoder": "~2.8",
         "widop/http-adapter-bundle": "~1.2",
         "knplabs/knp-menu-bundle": "~2",
-        "whiteoctober/breadcrumbs-bundle": "dev-master"
+        "whiteoctober/breadcrumbs-bundle": "dev-master",
+        "guzzlehttp/guzzle": "^6.1",
+        "jms/serializer-bundle": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

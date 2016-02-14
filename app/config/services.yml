@@ -9,3 +9,5 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     coordinate:
         class:        Location\PlaceBundle\Coordinate
+    http.client:
+        class:        GuzzleHttp\Client

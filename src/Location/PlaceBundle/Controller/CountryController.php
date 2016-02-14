@@ -3,7 +3,6 @@
 namespace Location\PlaceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Ivory\GoogleMapBundle\Model\Map;
 use Location\PlaceBundle\Entity\Country;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,7 +10,6 @@ class CountryController extends Controller
 {
     public function mapAction($id)
     {   
-        
         $country = $this->getDoctrine()
             ->getRepository('LocationPlaceBundle:Country')
             ->find($id);

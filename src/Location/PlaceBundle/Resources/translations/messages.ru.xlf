@@ -218,6 +218,30 @@
                 <source>search placeholder</source>
                 <target>Текст поиска</target>
             </trans-unit>
+            <trans-unit id="55">
+                <source>population</source>
+                <target>Население</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>currency code</source>
+                <target>Валюта</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>area</source>
+                <target>Площадь</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>ISO country code</source>
+                <target>ISO код страны</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>km</source>
+                <target>км</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>population people</source>
+                <target>человек</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

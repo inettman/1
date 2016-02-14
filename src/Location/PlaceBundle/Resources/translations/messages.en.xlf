@@ -218,6 +218,30 @@
                 <source>search placeholder</source>
                 <target>Search text</target>
             </trans-unit>
+            <trans-unit id="55">
+                <source>population</source>
+                <target>Population</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>currency code</source>
+                <target>Currency</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>area</source>
+                <target>Area</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>ISO country code</source>
+                <target>ISO country code</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>km</source>
+                <target>km</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>population people</source>
+                <target>people</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

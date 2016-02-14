@@ -2,3 +2,6 @@ services:
 #    location_place.example:
 #        class: Location\PlaceBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+      geonames.country.service:
+          class: Location\PlaceBundle\Services\Geonames\CountryService
+          arguments: [@http.client, @jms_serializer]

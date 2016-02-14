@@ -8,7 +8,11 @@
     
     <h1>{{title}}</h1>
 
-    <p><strong>{{country.name}} {{ 'coordinates'|trans|lower }}:</strong> {{country.lat}} {{country.lng}}</p>
+    <p><strong>{{ 'coordinates'|trans }}:</strong> {{country.lat}} {{country.lng}}</p>
+    <p><strong>{{ 'area'|trans }}:</strong> {{country.area}} {{ 'km'|trans }}<sup>2</sup></p>
+    <p><strong>{{ 'population'|trans }}:</strong> {{country.population}} {{ 'population people'|trans }}</p>
+    <p><strong>{{ 'currency code'|trans }}:</strong> {{country.currencyCode}}</p>
+    <p><strong>{{ 'ISO country code'|trans }}:</strong> {{country.isoCode}}</p>
     {{ render(controller('LocationPlaceBundle:Place:search', {'map':map})) }}
     
     <h2>{{ 'geographic size'|trans }}</h2>

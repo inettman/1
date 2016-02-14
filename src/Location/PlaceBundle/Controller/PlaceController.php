@@ -116,7 +116,7 @@ class PlaceController extends Controller
         $country_arr = array();
         
         $result = '';
-        
+
         foreach($location_arr as $location){
             
            if(in_array('locality', $location['types'])){
@@ -139,31 +139,43 @@ class PlaceController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         
-        if($country_arr && $country_arr['geometry']['location']){
+        if ($country_arr && $country_arr['geometry']['location']) {
 
             $country = $this->getDoctrine()->getRepository('LocationPlaceBundle:Country')->findOneBy(array('google_place_id'=>$country_arr['place_id']));
-            
-            if(!$country){
+
+            if (!$country) {
                 $country = new Country();
+                $country->setName($country_arr['address_components'][0]['long_name']);
+                $country->setAddress($country_arr['address_components'][0]['short_name']);
+                $country->setGooglePlaceId($country_arr['place_id']);
+                $country->setLat(current($country_arr['geometry']['location']));
+                $country->setLng(end($country_arr['geometry']['location']));
+
+                $lat_bounds = current($country_arr['geometry']['viewport']);
+                $lng_bounds = end($country_arr['geometry']['viewport']);
+                $country->setLatS(current($lat_bounds));
+                $country->setLatN(end($lat_bounds));
+                $country->setLngW(current($lng_bounds));
+                $country->setLngE(end($lng_bounds));
+
+                $geonamesCountry = $this->container
+                    ->get('geonames.country.service')
+                    ->getCountryByCode(
+                        $country_arr['address_components'][0]['short_name'],
+                        $this->container->getParameter('locale')
+                    );
+                if (!empty($geonamesCountry)) {
+                    $country->setCurrencyCode($geonamesCountry->getCurrencyCode());
+                    $country->setPopulation($geonamesCountry->getPopulation());
+                    $country->setArea($geonamesCountry->getAreaInSqKm());
+                    $country->setIsoCode($geonamesCountry->getIsoNumeric());
+                }
+
+                $em->persist($country);
+                $em->flush();
             }
-            
-            $country->setName($country_arr['address_components'][0]['long_name']);
-            $country->setAddress($country_arr['address_components'][0]['short_name']);
-            $country->setGooglePlaceId($country_arr['place_id']);
-            $country->setLat(current($country_arr['geometry']['location']));
-            $country->setLng(end($country_arr['geometry']['location']));
-            
-            $lat_bounds = current($country_arr['geometry']['viewport']);
-            $lng_bounds = end($country_arr['geometry']['viewport']);
-            $country->setLatS(current($lat_bounds));
-            $country->setLatN(end($lat_bounds));
-            $country->setLngW(current($lng_bounds));
-            $country->setLngE(end($lng_bounds));
-            
-            $em->persist($country);
-            $em->flush();
-            
-            if($place_arr['place_id'] == $country_arr['place_id']){
+
+            if ($place_arr['place_id'] == $country_arr['place_id']) {
                 $link = array(
                     'name' => $country->getName(),
                     'href' => $this->generateUrl('location_country_map', array('id' => $country->getId()))

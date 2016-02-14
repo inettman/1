@@ -25,53 +25,73 @@ class Country
     /**
      * @ORM\Column(type="string", length=150)
      */
-    protected $name;
+    private $name;
     
     /**
      * @ORM\Column(type="string", length=250)
      */
-    protected $address;
+    private $address;
     
     /**
      * @ORM\Column(type="string", length=30)
      */
-    protected $google_place_id;
+    private $google_place_id;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lat;
+    private $lat;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lng;
+    private $lng;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lat_n;
+    private $lat_n;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lat_s;
+    private $lat_s;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lng_w;
+    private $lng_w;
     
     /**
      * @ORM\Column(type="decimal", scale=6)
      */
-    protected $lng_e;
+    private $lng_e;
     
     /**
      * @ORM\OneToMany(targetEntity="Region", mappedBy="country")
      * @ORM\OrderBy({"name" = "ASC"})
      */
-    protected $regions;
+    private $regions;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $currencyCode;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $population;
+
+    /**
+     * @ORM\Column(type="bigint")
+     */
+    private $area;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $isoCode;
 
     public function __construct()
     {
@@ -294,6 +314,82 @@ class Country
     public function getLngE()
     {
         return $this->lng_e;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
+    }
+
+    /**
+     * @param $currencyCode
+     * @return $this
+     */
+    public function setCurrencyCode($currencyCode)
+    {
+        $this->currencyCode = $currencyCode;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPopulation()
+    {
+        return $this->population;
+    }
+
+    /**
+     * @param $population
+     * @return $this
+     */
+    public function setPopulation($population)
+    {
+        $this->population = $population;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param $area
+     * @return $this
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsoCode()
+    {
+        return $this->isoCode;
+    }
+
+    /**
+     * @param $isoCode
+     * @return $this
+     */
+    public function setIsoCode($isoCode)
+    {
+        $this->isoCode = $isoCode;
+
+        return $this;
     }
 
     /**

@@ -1,7 +1,7 @@
 {{ include('LocationPlaceBundle::Banner/top.html.twig') }}
 
 <div class="input-group bottom_space">
-    <div class="input-group-btn">
+    <div class="input-group-btn btn-group-lg">
         <button id="autocomplete_toogle" type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown"><span class="title">{{ autocomplete_types.0.title }}</span> <span class="caret"></span></button>
         <ul class="dropdown-menu pull-left" id="autocomplete_option">
             {% for type in autocomplete_types %}
