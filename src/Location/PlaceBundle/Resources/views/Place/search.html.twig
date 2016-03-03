@@ -41,20 +41,11 @@
 
             place.url = [];
 
-            function convertLatLngValue(key,value)
-            {
-                if (key=="lat" || key=="lng") {
-                    return value();
-                }
-                else
-                    return value;
-            }
-
             geocoder.geocode({'latLng': place.geometry.location}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     $.ajax({
                         type: "POST",
-                        data: "place="+JSON.stringify(place,convertLatLngValue,4)+"&location="+JSON.stringify(results,convertLatLngValue,4),
+                        data: "place="+JSON.stringify(place)+"&location="+JSON.stringify(results),
                         url: "{{ path('location_place_add') }}",
                         dataType: "json",
                         async: false,

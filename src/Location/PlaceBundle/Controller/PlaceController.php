@@ -151,12 +151,10 @@ class PlaceController extends Controller
                 $country->setLat(current($country_arr['geometry']['location']));
                 $country->setLng(end($country_arr['geometry']['location']));
 
-                $lat_bounds = current($country_arr['geometry']['viewport']);
-                $lng_bounds = end($country_arr['geometry']['viewport']);
-                $country->setLatS(current($lat_bounds));
-                $country->setLatN(end($lat_bounds));
-                $country->setLngW(current($lng_bounds));
-                $country->setLngE(end($lng_bounds));
+                $country->setLatS($region_arr['geometry']['viewport']['south']);
+                $country->setLatN($region_arr['geometry']['viewport']['north']);
+                $country->setLngW($region_arr['geometry']['viewport']['west']);
+                $country->setLngE($region_arr['geometry']['viewport']['east']);
 
                 $geonamesCountry = $this->container
                     ->get('geonames.country.service')
@@ -193,19 +191,17 @@ class PlaceController extends Controller
             if(!$region){
                 $region = new Region();
             }
-            
+
             $region->setName($region_arr['address_components'][0]['long_name']);
             $region->setAddress($region_arr['formatted_address']);
             $region->setGooglePlaceId($region_arr['place_id']);
             $region->setLat(current($region_arr['geometry']['location']));
             $region->setLng(end($region_arr['geometry']['location']));
-            
-            $lat_bounds = current($region_arr['geometry']['viewport']);
-            $lng_bounds = end($region_arr['geometry']['viewport']);
-            $region->setLatS(current($lat_bounds));
-            $region->setLatN(end($lat_bounds));
-            $region->setLngW(current($lng_bounds));
-            $region->setLngE(end($lng_bounds));
+
+            $region->setLatS($region_arr['geometry']['viewport']['south']);
+            $region->setLatN($region_arr['geometry']['viewport']['north']);
+            $region->setLngW($region_arr['geometry']['viewport']['west']);
+            $region->setLngE($region_arr['geometry']['viewport']['east']);
             
             $region->setCountry($country);
             
@@ -237,12 +233,10 @@ class PlaceController extends Controller
                 $district->setLat(current($district_arr['geometry']['location']));
                 $district->setLng(end($district_arr['geometry']['location']));
 
-                $lat_bounds = current($district_arr['geometry']['viewport']);
-                $lng_bounds = end($district_arr['geometry']['viewport']);
-                $district->setLatS(current($lat_bounds));
-                $district->setLatN(end($lat_bounds));
-                $district->setLngW(current($lng_bounds));
-                $district->setLngE(end($lng_bounds));
+                $district->setLatS($region_arr['geometry']['viewport']['south']);
+                $district->setLatN($region_arr['geometry']['viewport']['north']);
+                $district->setLngW($region_arr['geometry']['viewport']['west']);
+                $district->setLngE($region_arr['geometry']['viewport']['east']);
                 
                 $district->setRegion($region);
 
@@ -274,12 +268,10 @@ class PlaceController extends Controller
                 $district->setLat(current($city_geometry['location']));
                 $district->setLng(end($city_geometry['location']));
 
-                $lat_bounds = current($city_geometry['viewport']);
-                $lng_bounds = end($city_geometry['viewport']);
-                $district->setLatS(current($lat_bounds));
-                $district->setLatN(end($lat_bounds));
-                $district->setLngW(current($lng_bounds));
-                $district->setLngE(end($lng_bounds));
+                $district->setLatS($region_arr['geometry']['viewport']['south']);
+                $district->setLatN($region_arr['geometry']['viewport']['north']);
+                $district->setLngW($region_arr['geometry']['viewport']['west']);
+                $district->setLngE($region_arr['geometry']['viewport']['east']);
                 
                 $district->setRegion($region);
 
@@ -304,13 +296,10 @@ class PlaceController extends Controller
             $city->setLat(current($city_arr['geometry']['location']));
             $city->setLng(end($city_arr['geometry']['location']));
             
-            $lat_bounds = current($city_arr['geometry']['viewport']);
-            $lng_bounds = end($city_arr['geometry']['viewport']);
-            
-            $city->setLatS(current($lat_bounds));
-            $city->setLatN(end($lat_bounds));
-            $city->setLngW(current($lng_bounds));
-            $city->setLngE(end($lng_bounds));
+            $city->setLatS($region_arr['geometry']['viewport']['south']);
+            $city->setLatN($region_arr['geometry']['viewport']['north']);
+            $city->setLngW($region_arr['geometry']['viewport']['west']);
+            $city->setLngE($region_arr['geometry']['viewport']['east']);
             
             $city->setDistrict($district);
             
